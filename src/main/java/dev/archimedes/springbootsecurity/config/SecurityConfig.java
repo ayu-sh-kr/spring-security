@@ -30,7 +30,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated());
 
         http.exceptionHandling(ex -> ex.authenticationEntryPoint(point));
-        http .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
